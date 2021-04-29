@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadania</title>
+</head>
+<body>
+
+{% if data %}
+    <table><tr><th>Zadanie</th><th>Poziom</th></tr>
+    {% for e in data %}
+        <tr><td><a href="{% static e.id  %}" > {{e.name}} </a></td>
+            {% if e.diff == 1 %}
+                <td style="background-color:LightGreen;">łatwe</td></tr>
+            {% elif e.diff == 2 %}
+                <td style="background-color:Yellow;">średnie</td></tr>
+            {% else %}
+                <td style="background-color:Tomato;">trudne</td></tr>
+            {% endif %}
+    {% endfor %}
+    </table>
+{% endif %}
+
+<br>
+<br>
+<a href="{% url 'my_page' %}">Moja strona</a>
+<br>
+<a href="{% url 'tasks' %}">Zadania</a>
+<br>
+<a href="{% url 'send' %}">Wyślij</a>
+<br>
+<a href="{% url 'solutions' %}">Zgłoszenia</a>
+<br>
+<a href="{% url 'logout' %}">Wyloguj</a>
+</body>
+</html>

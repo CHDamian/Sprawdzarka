@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Raport</title>
+</head>
+<body>
+
+<h1>Rezultat:</h1><br><br>
+
+{% if compile == 0 %}
+<b>Kompilacja: </b><a>Sukces</a><br>
+{% else %}
+<b>Kompilacja: </b><a>ERROR {{compile}}</a><br>
+{% endif %}
+
+{% for i in raport %}
+    <br><a>{{i}}</a>
+{% endfor %}
+
+
+<br>
+<br>
+<a href="{% url 'my_page' %}">Moja strona</a>
+<br>
+<a href="{% url 'tasks' %}">Zadania</a>
+<br>
+<a href="{% url 'send' %}">Wyślij</a>
+<br>
+<a href="{% url 'solutions' %}">Zgłoszenia</a>
+<br>
+<a href="{% url 'logout' %}">Wyloguj</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moje strona</title>
+</head>
+<body>
+<h1>Witaj {{user_id}}</h1>
+<br>
+<br>
+<a href="{% url 'my_page' %}">Moja strona</a>
+<br>
+<a href="{% url 'tasks' %}">Zadania</a>
+<br>
+<a href="{% url 'send' %}">Wyślij</a>
+<br>
+<a href="{% url 'solutions' %}">Zgłoszenia</a>
+<br>
+<a href="{% url 'logout' %}">Wyloguj</a>
+</body>
+</html>

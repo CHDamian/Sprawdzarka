@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyślij</title>
+</head>
+<body>
+{% if data %}
+    <form action="{% url 'make_tests' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    Select file to upload:
+    <br /><input type="file" name="fileToUpload" id="fileToUpload"><br />
+     Zadanie:
+     <br /><select id="task" name="taskID">
+    {% for e in data %}
+        <option value={{e.id}}>{{e.name}}</option>
+    {% endfor %}
+    </select>
+        <br /><br /><input type="submit" value="Upload" name="submit">
+    </form>
+{% endif %}
+
+<br>
+<br>
+<a href="{% url 'my_page' %}">Moja strona</a>
+<br>
+<a href="{% url 'tasks' %}">Zadania</a>
+<br>
+<a href="{% url 'send' %}">Wyślij</a>
+<br>
+<a href="{% url 'solutions' %}">Zgłoszenia</a>
+<br>
+<a href="{% url 'logout' %}">Wyloguj</a>
+</body>
+</html>
